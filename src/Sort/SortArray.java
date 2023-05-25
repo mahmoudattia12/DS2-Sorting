@@ -51,4 +51,15 @@ public class SortArray<T extends Comparable<T>> {
         T temp = arr[index]; arr[index] = arr[index + 1]; arr[index + 1] = temp;
     }
 
+    //merge sort
+    public T[][] efficientSort(boolean intermediate){
+        for(int i = 0; i < array.length; i++){
+            System.out.println(array[i]);
+        }
+        MergeSort<T> efficient = new MergeSort<>();
+        return efficient.sort(array, intermediate);
+    }
+
+
+
 }
