@@ -37,4 +37,5 @@ public class SortArray {
     public int[][] efficientSort(boolean intermediate) {
         return new MergeSort().sort(array, intermediate);
     }
+    public int[][] NonComparisonSort(boolean intermediate) {return new CountingSort().sort(array, intermediate);}
 }

@@ -94,13 +94,21 @@ public class Command  {
                     intermediate = cli.nextLine();
                     if(intermediate.equals("0")){
                         //here call the count sort
-//                        results = sort.SimpleSort(false);
+                        results = sort.NonComparisonSort(false);
                     }else if(intermediate.equals("1")){
                         //here call the count sort
-//                        results = sort.SimpleSort(true);
+                        results = sort.NonComparisonSort(true);
                     }else{
                         System.out.println("wrong input!!!!");
                         continue;
+                    }
+                    System.out.println("the result:");
+                    for(int i = 0; i < results.length; i++){
+                        for(int j = 0; j < results[0].length; j++){
+                            System.out.print(results[i][j]);
+                            if(j != results[0].length - 1) System.out.print(" ,");
+                            else System.out.println();
+                        }
                     }
                     break;
                 }
