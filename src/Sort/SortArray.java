@@ -1,5 +1,7 @@
 package Sort;
 
+import PQ.maxHeap;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -38,4 +40,10 @@ public class SortArray {
         return new MergeSort().sort(array, intermediate);
     }
     public int[][] NonComparisonSort(boolean intermediate) {return new CountingSort().sort(array, intermediate);}
+
+    // heap sort
+    public int[][] heapSort(boolean intermediate){
+        maxHeap pq = new maxHeap(array.length);
+        return pq.sort(array, intermediate);
+    }
 }

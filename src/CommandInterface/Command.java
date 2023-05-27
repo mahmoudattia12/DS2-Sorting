@@ -81,6 +81,27 @@ public class Command  {
                         }
                     }else if(algo.equals("2")){
                         //here call the heap sort and store it in the 2d array results
+                        while (true){
+                            System.out.print("please enter if you want intermediate results (1) or not (0): ");
+                            intermediate = cli.nextLine();
+                            if(intermediate.equals("0")){
+                                results = sort.heapSort(false);
+                            }else if(intermediate.equals("1")){
+                                results = sort.heapSort(true);
+                            }else{
+                                System.out.println("wrong input!!!!");
+                                continue;
+                            }
+                            break;
+                        }
+                        System.out.println("the result:");
+                        for(int i = 0; i < results.length; i++){
+                            for(int j = 0; j < results[0].length; j++){
+                                System.out.print(results[i][j]);
+                                if(j != results[0].length - 1) System.out.print(" ,");
+                                else System.out.println();
+                            }
+                        }
                     }else{
                         System.out.println("wrong input!!!!");
                         continue;
