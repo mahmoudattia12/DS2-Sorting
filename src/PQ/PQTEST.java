@@ -136,6 +136,109 @@ public class PQTEST {
         System.out.println("cs:" + ct/10);
     }
 
+    @Test
+    void testBest(){
+        long start, end;
+        int N = 100000;
+        int[] input = bestArr(N);
+        maxHeap pq = new maxHeap(input.length);
+        start = System.nanoTime();
+        int[][] STEPS = pq.sort(input, false);
+        end = System.nanoTime();
+        System.out.println("Heap sort best case: " + ((end-start)/1000) + " us" );
+        Arrays.sort(input);
+        assertArrayEquals(input, STEPS[0]);
+    }
+
+    @Test
+    void testWorst(){
+        long start, end;
+        int N = 100000;
+        int[] input = worstArr(N);
+        maxHeap pq = new maxHeap(input.length);
+        start = System.nanoTime();
+        int[][] STEPS = pq.sort(input, false);
+        end = System.nanoTime();
+        System.out.println("Heap sort worst case: " + ((end-start)/1000) + " us" );
+        Arrays.sort(input);
+        assertArrayEquals(input, STEPS[0]);
+    }
+
+    @Test
+    void testAvg(){
+        long start, end, avg;
+        int N = 100000;
+        int[] input = averageArr1(N);
+        maxHeap pq = new maxHeap(input.length);
+        start = System.nanoTime();
+        int[][] STEPS = pq.sort(input, false);
+        end = System.nanoTime();
+        avg = end - start;
+        Arrays.sort(input);
+        assertArrayEquals(input, STEPS[0]);
+
+
+        int[] input2 = averageArr2(N);
+        maxHeap pq2 = new maxHeap(input2.length);
+        start = System.nanoTime();
+        int[][] STEPS2 = pq.sort(input2, false);
+        end = System.nanoTime();
+        avg += (end-start);
+        Arrays.sort(input2);
+        assertArrayEquals(input2, STEPS2[0]);
+
+        System.out.println("Heap sort avg case: " + ((avg/2)/1000) + " us" );
+
+    }
+
+
+
+    public int[] bestArr(int N) {
+        int[] arr = new int[N];
+        for (int i = 0; i < N; i++) {
+            arr[i] = N - i;
+        }
+        return arr;
+    }
+
+    public int[] worstArr(int N) {
+        int[] arr = new int[N];
+        for (int i = 0; i < N; i++) {
+            arr[i] = i + 1;
+        }
+        return arr;
+    }
+
+    public int[] averageArr1(int N) {
+        int[] arr = new int[N];
+        int half = N / 2;
+
+        for (int i = 0; i < half; i++) {
+            arr[i] = i + 1;
+        }
+
+        for (int i = half; i < N; i++) {
+            arr[i] = N - i + half;
+        }
+
+        return arr;
+    }
+
+    public int[] averageArr2(int N) {
+        int[] arr = new int[N];
+        int half = N / 2;
+
+        for (int i = 0; i < half; i++) {
+            arr[i] = half - i;
+        }
+
+        for (int i = half; i < N; i++) {
+            arr[i] = i - half + 1;
+        }
+
+        return arr;
+    }
+
 }
 
 

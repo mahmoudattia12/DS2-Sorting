@@ -123,15 +123,15 @@ public class Command  {
                         System.out.println("wrong input!!!!");
                         continue;
                     }
-                    System.out.println("the result:");
-                    for(int i = 0; i < results.length; i++){
-                        for(int j = 0; j < results[0].length; j++){
-                            System.out.print(results[i][j]);
-                            if(j != results[0].length - 1) System.out.print(" ,");
-                            else System.out.println();
-                        }
-                    }
                     break;
+                }
+                System.out.println("the result:");
+                for(int i = 0; i < results.length; i++){
+                    for(int j = 0; j < results[0].length; j++){
+                        System.out.print(results[i][j]);
+                        if(j != results[0].length - 1) System.out.print(" ,");
+                        else System.out.println();
+                    }
                 }
             }else if(mainMenuChoice.equals("4")){
                 break;
@@ -140,13 +140,8 @@ public class Command  {
                 continue;
             }
             break;
-
         }
-
     }
-
-
-
 }
 
 

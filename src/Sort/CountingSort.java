@@ -20,6 +20,9 @@ public class CountingSort {
         }
         public int[][] sort(int[] arr,boolean intermediate)
         {
+                if(arr.length == 0){
+                        return null;
+                }
                 int max = getMax(arr);
                 int min = getMin(arr);
                 int range = max - min + 1;
